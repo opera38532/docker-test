@@ -19,16 +19,16 @@ services:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
 
-  caddy:
-    command: [ "caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile", "--watch" ]
-    build:
-      context: .
-      target: caddy_base
-    volumes:
-      - ./public:/srv/app/public:ro
-      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
-    environment:
-      MERCURE_EXTRA_DIRECTIVES: demo
+  # caddy:
+  #   command: [ "caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile", "--watch" ]
+  #   build:
+  #     context: .
+  #     target: caddy_base
+  #   volumes:
+  #     - ./public:/srv/app/public:ro
+  #     - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+  #   environment:
+  #     MERCURE_EXTRA_DIRECTIVES: demo
 
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
